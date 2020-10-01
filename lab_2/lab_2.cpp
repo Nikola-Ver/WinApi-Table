@@ -1,13 +1,20 @@
-﻿// lab_2.cpp : Определяет точку входа для приложения.
-//
-#include <Windows.h>
+﻿#include <Windows.h>
+#include <fstream>
 #include "lab_2.h"
 
+std::string *list = NULL;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     switch (msg)
     {
+        case WM_CREATE:
+        {
+            std::string line;
+            std::ofstream file;
+            file.open("./table.txt");
+            return 0;
+        }
         case WM_DESTROY:
         {
             PostQuitMessage(0);
